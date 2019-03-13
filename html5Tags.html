@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>HTML5 Tags</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="styles.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <h1>HTML5 Tags</h1>
+        <h2>Video</h2>
+        <!--
+        controls adds play button, volume
+        Type= defines the video and the type of video file.
+        -->
+        <video width="400" height="300" controls>
+            <source src="clouds.mp4" type="video/mp4">
+        </video>
+        <h2>Audio</h2>
+        <audio controls>
+            <source src="epic.mp3" type="audio/mp3">
+        </audio>
+        <h2>Canvas</h2>
+        <h3>Drawing</h3>
+        <canvas id="myCanvas" width="200" height="100"
+                style="border:1px solid #c3c3c3;">
+        </canvas>
+
+        <script>
+            var canvas = document.getElementById("myCanvas");
+            var ctx = canvas.getContext("2d");
+            ctx.fillStyle = "#FF0000";
+            //coordinates to fill with red
+            ctx.fillRect(0, 0, 150, 75);
+        </script>
+
+        <h3>Drawing a Circle</h3>
+        <canvas id="myCanvas3" width="200" height="100"
+                style="border:1px solid #d3d3d3;">
+        </canvas>
+        <script>
+            var canvas = document.getElementById("myCanvas3");
+            var ctx = canvas.getContext("2d");
+            //starts the path of the circle
+            ctx.beginPath();
+            //creates the curve of the circle
+            //angle starts at 0 and ends with 2
+            ctx.arc(95, 50, 40, 0, 2 * Math.PI);
+            ctx.stroke();
+        </script> 
+
+        <h3>Coordinates</h3>
+        <canvas id="myCanvas1" width="200" height="100"
+                style="border:1px solid #d3d3d3;">
+        </canvas>
+        <script>
+
+            var canvas = document.getElementById("myCanvas1");
+            var ctx = canvas.getContext("2d");
+            //start point
+            ctx.moveTo(0, 0);
+            //end point
+            ctx.lineTo(200, 100);
+            //method to draw line
+            ctx.stroke();
+
+        </script>
+        <h3>Radial Gradient</h3>
+        <canvas id="myCanvas2" width="200" height="100"
+                style="border:1px solid #d3d3d3;">
+        </canvas>
+
+        <script>
+            var c = document.getElementById("myCanvas2");
+            var ctx = c.getContext("2d");
+
+            // Create radial gradient
+            var grd = ctx.createRadialGradient(75, 50, 5, 90, 60, 100);
+            grd.addColorStop(0, "blue");
+            grd.addColorStop(1, "white");
+
+            // Fill with gradient
+            ctx.fillStyle = grd;
+            ctx.fillRect(10, 10, 150, 80);
+        </script>
+        <h3>Linear Gradient</h3>
+        <canvas id="myCanvas5" width="200" height="100"
+                style="border:1px solid #d3d3d3;">
+            Your browser does not support the HTML5 canvas tag.</canvas>
+
+        <script>
+            var c = document.getElementById("myCanvas5");
+            var ctx = c.getContext("2d");
+
+            // Create gradient
+            var grd = ctx.createLinearGradient(0, 0, 200, 0);
+            grd.addColorStop(0, "purple");
+            grd.addColorStop(1, "white");
+
+            // Fill with gradient
+            ctx.fillStyle = grd;
+            ctx.fillRect(10, 10, 150, 80);
+        </script>
+        <h3>Text</h3>
+        <canvas id="myCanvas6" width="400" height="200"
+                style="border:1px solid #d3d3d3;">
+
+        </canvas>
+
+        <script>
+            var canvas = document.getElementById("myCanvas6");
+            var ctx = canvas.getContext("2d");
+            //font properties
+            ctx.font = "30px Arial";
+            ctx.textAlign = "center";
+            //Fill text
+            ctx.fillText("Fill Text", canvas.width / 2, canvas.height / 2);
+
+        </script>
+
+        <script>
+            var canvas = document.getElementById("myCanvas6");
+            var ctx = canvas.getContext("2d");
+            //font properties
+            ctx.font = "30px Arial";
+            //No fill and just draws outer lines
+            ctx.strokeText("No Fill", 50, 50);
+        </script>
+    </body>
+</html>
